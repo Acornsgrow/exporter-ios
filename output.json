@@ -1,8 +1,8 @@
 {
     "blueprints": [
         {
-            "invoke": "styleguide.pr",
-            "write_to": "Styles/StyleGuide.swift"
+            "invoke": "groveguide.pr",
+            "write_to": "Styles/GroveGuide.swift"
         },
         {
             "invoke": "colors.pr",
