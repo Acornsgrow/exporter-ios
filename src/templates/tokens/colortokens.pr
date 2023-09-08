@@ -19,7 +19,7 @@ public extension Color.GroveColors {
 
     {{ createDocumentationComment(token.description, "        ") }}
     {[/]}
-    public static let {[ inject "token_name" context this /]} = {[ inject "color" context token.value /]} 
+    static let {[ inject "token_name" context this /]} = {[ inject "color" context token.value /]} 
     {[/]}
     {[/]}
     {[/]}
