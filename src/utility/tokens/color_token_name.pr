@@ -1,0 +1,4 @@
+{[ let token = context /]}
+{[ const tokenGroup = ds.tokenGroupContainingTokenId(token.id) /]}
+{[ const tokenName = readableSwiftVariableName(token, tokenGroup) /]}
+{{ tokenName }}

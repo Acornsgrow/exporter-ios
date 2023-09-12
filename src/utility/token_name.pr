@@ -1,5 +1,0 @@
-{[ let groupName = "" /]}
-{[ if !context.group.isRoot ]}
-{[ groupName = context.group.path.join("").suffixed(context.group.name).camelcased(false).capitalized() /]}
-{[/]}
-{{ groupName }}{{ context.token.name.camelcased(groupName.count() > 0) }}
