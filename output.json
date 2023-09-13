@@ -1,12 +1,16 @@
 {
     "blueprints": [
         {
-            "invoke": "styleguide.pr",
-            "write_to": "Styles/StyleGuide.swift"
+            "invoke": "groveguide.pr",
+            "write_to": "DesignSystem/GroveGuide.swift"
         },
         {
-            "invoke": "colors.pr",
-            "write_to": "Styles/Color.swift"
+            "invoke": "colortokens.pr",
+            "write_to": "DesignSystem/Tokens/ColorTokens.swift"
+        },
+        {
+            "invoke": "buttontokens.pr",
+            "write_to": "DesignSystem/Components/Button/ButtonTokens.swift"
         }
     ]
 }
