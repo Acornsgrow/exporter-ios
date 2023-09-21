@@ -10,7 +10,9 @@ internal extension Color.GroveColors {
 {[ const tokens = ds.tokensByType(OPTION_TOKEN_TYPE, brand.id) /]}
 {[ const filteredTokens = getComponentTokens(tokens, COMPONENT_TYPE) /]}
 {[ for token in filteredTokens ]}
+
         static let {[ inject "color_token_name" context token /]}: {{ OPTION_TOKEN_TYPE }} = .GroveColors.{[ inject "color_token_name" context token /]}
 {[/]}
+
     }
 }
