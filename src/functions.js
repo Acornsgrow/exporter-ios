@@ -78,3 +78,10 @@ Pulsar.registerFunction('readableSwiftVariableName', function (token, tokenGroup
     return ""
   }
 })
+
+/**
+ * Returns a list of tokens that do not have a component property associated with them.
+ */
+Pulsar.registerFunction('filterOutComponentTokens', function (tokens) {
+  return tokens.filter(token => token.propertyValues.component === undefined)
+})
