@@ -13,7 +13,7 @@
             "write_to": "DesignSystem/Components/Button/ButtonTokens.swift"
         },
         {
-            "invoke": "primarybutton.pr",
+            "invoke": "PrimaryButton.swift.pr",
             "write_to": "DesignSystem/Components/Button/PrimaryButton.swift"
         }
     ]
