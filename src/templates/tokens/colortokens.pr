@@ -1,5 +1,4 @@
 {[ inject "auto_generated_comment" context self /]}
-{[ const requestedGroups = ["Natural", "Primary", "Others", "ADA"] /]}
 
 import SwiftUI
 
@@ -7,16 +6,10 @@ public extension Color.GroveColors {
 {[ let brand = ds.currentBrand() /]}
 {[ let groups = ds.tokenGroupsOfType("Color", brand.id) /]}
 {[ for group in groups ]}
-{[ if requestedGroups.contains(group.name)]}
-{[ if !(group.tokenIds.count() === 0 && group.subgroups.count() === 0) ]}
-
-{[ if !group.isRoot ]}
+{[ const tokens = filterOutComponentTokens(ds.tokensByGroupId(group.id)) /]}
+{[ if tokens.count() !== 0 ]}
 
     // MARK: - {{ group.name }}
-
-{[/]}
-{[ const tokens = ds.tokensByGroupId(group.id) /]}
-{[ if (group.tokenIds.count() !== 0 && (tokens.first() && tokens.first().description === 0)) ]}
 
 {[/]}
 {[ for token in tokens ]}
@@ -26,8 +19,6 @@ public extension Color.GroveColors {
 {[/]}
 
     static let {[ inject "color_token_name" context token /]} = {[ inject "color_token_value" context token.value /]}
-{[/]}
-{[/]}      
 {[/]}
 {[/]}
 
