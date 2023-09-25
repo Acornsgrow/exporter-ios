@@ -1,0 +1,50 @@
+import SwiftUI
+
+/// The basic, primary button used in Acorns.
+///
+/// - Parameter label: A `String` which will display as the main text of the button
+/// - Parameter isButtonEnabled: A `Binding` which will enable or disable various states and actions on the `PrimaryButton`
+/// - Parameter action: a closure to be invoked when `PrimaryButton` is interacted with
+public struct PrimaryButton: View {
+
+    private let label: String
+    @Binding private var isButtonEnabled: Bool
+    private let action: () -> Void
+
+    public init(
+        label: String,
+        isButtonEnabled: Binding<Bool>,
+        action: @escaping () -> Void
+    ) {
+        self.label = label
+        self._isButtonEnabled = isButtonEnabled
+        self.action = action
+    }
+
+    public var body: some View {
+        Button(label) {
+            if isButtonEnabled { action() }
+        }
+        .buttonStyle(PrimaryButtonStyle(isButtonEnabled: $isButtonEnabled))
+    }
+}
+
+internal struct PrimaryButtonStyle: ButtonStyle {
+    @Binding var isButtonEnabled: Bool
+
+    internal init(isButtonEnabled: Binding<Bool>) {
+        self._isButtonEnabled = isButtonEnabled
+    }
+
+    internal func makeBody(configuration: Self.Configuration) -> some View {
+        configuration.label
+            .font(Font.custom("AvenirNext-DemiBold", size: 14))
+            .frame(maxWidth: .infinity)
+            .frame(height: 44)
+            .foregroundColor(.GroveColors.Button.ButtonTextColorBase)
+            .background(isButtonEnabled ? Color.GroveColors.Button.ButtonBackgroundColorBase : Color.GroveColors.Button.ButtonBackgroundColorDisabled)
+            .disabled(!isButtonEnabled)
+            .clipShape(Capsule())
+            .opacity(configuration.isPressed && isButtonEnabled ? 0.8 : 1.0)
+    }
+}

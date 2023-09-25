@@ -3,6 +3,7 @@
 import SwiftUI
 
 internal extension Color.GroveColors {
+
     enum Button {        
 {[ let OPTION_TOKEN_TYPE = "Color" /]}
 {[ let COMPONENT_TYPE = "Button" /]}
@@ -10,7 +11,16 @@ internal extension Color.GroveColors {
 {[ const tokens = ds.tokensByType(OPTION_TOKEN_TYPE, brand.id) /]}
 {[ const filteredTokens = getComponentTokens(tokens, COMPONENT_TYPE) /]}
 {[ for token in filteredTokens ]}
-        static let {[ inject "color_token_name" context token /]}: {{ OPTION_TOKEN_TYPE }} = .GroveColors.{[ inject "color_token_name" context token /]}
+{[ if token.value?.referencedToken ]}
+
+        static let {[ inject "color_token_name" context token /]}: {{ OPTION_TOKEN_TYPE }} = .GroveColors.{[ inject "color_token_name" context token.value.referencedToken /]}
+{[ else if token.value?.hex ]}
+
+        static let {[ inject "color_token_name" context token /]} = {[ inject "color_token_value" context token.value /]}
 {[/]}
+{[/]}
+
+
     }
+
 }
