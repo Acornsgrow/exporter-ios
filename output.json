@@ -2,19 +2,19 @@
     "blueprints": [
         {
             "invoke": "GroveGuide.swift.pr",
-            "write_to": "DesignSystem/GroveGuide.swift"
+            "write_to": "GroveGuide.swift"
         },
         {
             "invoke": "ColorTokens.swift.pr",
-            "write_to": "DesignSystem/Tokens/ColorTokens.swift"
+            "write_to": "Tokens/ColorTokens.swift"
         },
         {
             "invoke": "ButtonTokens.swift.pr",
-            "write_to": "DesignSystem/Components/Button/ButtonTokens.swift"
+            "write_to": "Components/Button/ButtonTokens.swift"
         },
         {
             "invoke": "PrimaryButton.swift.pr",
-            "write_to": "DesignSystem/Components/Button/PrimaryButton.swift"
+            "write_to": "Components/Button/PrimaryButton.swift"
         }
     ]
 }
