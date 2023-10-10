@@ -9,7 +9,7 @@ public extension Color.GroveColors {
 {[ const tokens = filterOutComponentTokens(ds.tokensByGroupId(group.id)) /]}
 {[ if tokens.count() !== 0 ]}
 
-    // MARK: - {{ group.name }}
+    // MARK: - {{ group.name }} 
 
 {[/]}
 {[ for token in tokens ]}
@@ -19,6 +19,8 @@ public extension Color.GroveColors {
 {[/]}
 
     static let {[ inject "color_token_name" context token /]} = {[ inject "color_token_value" context token.value /]}
+
+
 {[/]}
 {[/]}
 
