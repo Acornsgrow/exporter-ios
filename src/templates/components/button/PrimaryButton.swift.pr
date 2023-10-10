@@ -1,3 +1,5 @@
+{[ inject "auto_generated_comment" context self /]}
+
 import SwiftUI
 
 /// The basic, primary button used in Acorns.
