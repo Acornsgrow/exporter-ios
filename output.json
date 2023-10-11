@@ -19,6 +19,14 @@
         {
             "invoke": "SecondaryButton.swift.pr",
             "write_to": "Components/Button/SecondaryButton.swift"
+        },
+        {
+            "invoke": "PrimaryInvertedButton.swift.pr",
+            "write_to": "Components/Button/PrimaryInvertedButton.swift"
+        },
+        {
+            "invoke": "SecondaryInvertedButton.swift.pr",
+            "write_to": "Components/Button/SecondaryInvertedButton.swift"
         }
     ]
 }

@@ -2,12 +2,12 @@
 
 import SwiftUI
 
-/// THe inverted variation of the primary button used in Acorns.
+/// The basic, secondary button used in Acorns.
 ///
 /// - Parameter label: A `String` which will display as the main text of the button
-/// - Parameter isButtonEnabled: A `Binding` which will enable or disable various states and actions on the `PrimaryInvertedButton`
-/// - Parameter action: a closure to be invoked when `PrimaryInvertedButton` is interacted with
-public struct PrimaryInvertedButton: View {
+/// - Parameter isButtonEnabled: A `Binding` which will enable or disable various states and actions on the `SecondaryInvertedButton`
+/// - Parameter action: a closure to be invoked when `SecondaryInvertedButton` is interacted with
+public struct SecondaryInvertedButton: View {
 
     private let label: String
     @Binding private var isButtonEnabled: Bool
@@ -27,11 +27,11 @@ public struct PrimaryInvertedButton: View {
         Button(label) {
             if isButtonEnabled { action() }
         }
-        .buttonStyle(PrimaryInvertedButtonStyle(isButtonEnabled: $isButtonEnabled))
+        .buttonStyle(SecondaryInvertedButtonStyle(isButtonEnabled: $isButtonEnabled))
     }
 }
 
-internal struct PrimaryInvertedButtonStyle: ButtonStyle {
+internal struct SecondaryInvertedButtonStyle: ButtonStyle {
     @Binding var isButtonEnabled: Bool
 
     internal init(isButtonEnabled: Binding<Bool>) {
@@ -43,8 +43,12 @@ internal struct PrimaryInvertedButtonStyle: ButtonStyle {
             .font(Font.custom("AvenirNext-DemiBold", size: 14))
             .frame(maxWidth: .infinity)
             .frame(height: 44)
-            .foregroundColor(isButtonEnabled ? .GroveColors.Button.ButtonTextColorInvertedBase : .GroveColors.Button.ButtonTextColorInvertedDisabled)
-            .background(isButtonEnabled ? Color.GroveColors.Button.ButtonBackgroundColorInvertedBase : .GroveColors.Button.ButtonBackgroundColorInvertedDisabled)
+            .overlay(
+                RoundedRectangle(cornerRadius: 22)
+                    .stroke(isButtonEnabled ? Color.GroveColors.Button.ButtonBorderColorSecondaryHover : .GroveColors.Button.ButtonBorderColorSecondaryBase, lineWidth: 1)
+            )
+            .foregroundColor(isButtonEnabled ? .GroveColors.Button.ButtonBorderColorSecondaryInvertedBase : .GroveColors.Button.ButtonTextColorSecondaryDisabled)
+            .background(Color.GroveColors.Button.ButtonTextColorSecondaryBase)
             .disabled(!isButtonEnabled)
             .clipShape(Capsule())
             .opacity(configuration.isPressed && isButtonEnabled ? 0.8 : 1.0)

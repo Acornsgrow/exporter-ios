@@ -48,7 +48,7 @@ internal struct SecondaryButtonStyle: ButtonStyle {
                     .stroke(isButtonEnabled ? Color.GroveColors.Button.ButtonBorderColorSecondaryHover : .GroveColors.Button.ButtonBorderColorSecondaryBase, lineWidth: 1)
             )
             .foregroundColor(isButtonEnabled ? .GroveColors.Button.ButtonTextColorSecondaryBase : .GroveColors.Button.ButtonTextColorSecondaryDisabled)
-            .background(Color.GroveColors.Button.ButtonBackgroundColorInvertedBase)
+            .background(Color.GroveColors.Button.ButtonBorderColorSecondaryInvertedBase)
             .disabled(!isButtonEnabled)
             .clipShape(Capsule())
             .opacity(configuration.isPressed && isButtonEnabled ? 0.8 : 1.0)
