@@ -13,8 +13,20 @@
             "write_to": "Components/Button/ButtonTokens.swift"
         },
         {
-            "invoke": "PrimaryButton.swift.pr",
-            "write_to": "Components/Button/PrimaryButton.swift"
+            "invoke": "PrimaryMainButtonStyle.swift.pr",
+            "write_to": "Components/Button/PrimaryMainButtonStyle.swift"
+        },
+        {
+            "invoke": "SecondaryMainButtonStyle.swift.pr",
+            "write_to": "Components/Button/SecondaryMainButtonStyle.swift"
+        },
+        {
+            "invoke": "InvertedPrimaryButtonStyle.swift.pr",
+            "write_to": "Components/Button/InvertedPrimaryButtonStyle.swift"
+        },
+        {
+            "invoke": "SecondaryInvertedButtonStyle.swift.pr",
+            "write_to": "Components/Button/SecondaryInvertedButtonStyle.swift"
         }
     ]
 }

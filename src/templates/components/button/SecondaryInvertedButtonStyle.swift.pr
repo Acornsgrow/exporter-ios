@@ -1,0 +1,32 @@
+{[ inject "auto_generated_comment" context self /]}
+
+import SwiftUI
+
+public struct SecondaryInvertedButtonStyle: ButtonStyle {
+
+    @Environment(\.isEnabled) var isEnabled
+
+    public func makeBody(configuration: Self.Configuration) -> some View {
+        configuration.label
+            .font(Font.custom("AvenirNext-DemiBold", size: 14))
+            .frame(maxWidth: .infinity)
+            .frame(height: 44)
+            .overlay(
+                RoundedRectangle(cornerRadius: 22)
+                    .stroke(isEnabled ? Color.GroveColors.Button.ButtonBorderColorSecondaryHover : .GroveColors.Button.ButtonBorderColorSecondaryBase, lineWidth: 1)
+            )
+            .foregroundColor(isEnabled ? .GroveColors.Button.ButtonBorderColorSecondaryInvertedBase : .GroveColors.Button.ButtonTextColorSecondaryDisabled)
+            .background(Color.GroveColors.Button.ButtonTextColorSecondaryBase)
+            .disabled(!isEnabled)
+            .clipShape(Capsule())
+            .opacity(configuration.isPressed && isEnabled ? 0.8 : 1.0)
+    }
+}
+
+extension ButtonStyle where Self == SecondaryInvertedButtonStyle {
+
+    public static var secondaryInvertedButtonStyle: SecondaryInvertedButtonStyle {
+        SecondaryInvertedButtonStyle()
+    }
+
+}
