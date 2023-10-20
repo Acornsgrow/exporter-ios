@@ -1,5 +1,5 @@
 {[ inject "auto_generated_comment" context comment /]}
 {[ inject "swiftui_import" context self /]}
 
-public extension Color { enum GroveColors {} }
-public extension Gradient { enum GroveGradients {} }
+public extension Color { enum Grove {} }
+public extension Gradient { enum Grove {} }

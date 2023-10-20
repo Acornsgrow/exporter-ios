@@ -2,7 +2,7 @@
 
 import SwiftUI
 
-public extension Color.GroveColors {
+public extension Color.Grove {
 {[ let brand = ds.currentBrand() /]}
 {[ let groups = ds.tokenGroupsOfType("Color", brand.id) /]}
 {[ for group in groups ]}
