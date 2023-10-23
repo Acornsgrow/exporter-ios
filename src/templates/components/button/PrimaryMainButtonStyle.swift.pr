@@ -1,6 +1,5 @@
 {[ inject "auto_generated_comment" context self /]}
-
-import SwiftUI
+{[ inject "swiftui_import" context self /]}
 
 public struct PrimaryMainButtonStyle: ButtonStyle {
 
