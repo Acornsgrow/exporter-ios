@@ -13,10 +13,10 @@ public struct SecondaryInvertedButtonStyle: ButtonStyle {
             .frame(height: 44)
             .overlay(
                 RoundedRectangle(cornerRadius: 22)
-                    .stroke(isEnabled ? Color.Grove.Button.ButtonBorderColorSecondaryHover : .Grove.Button.ButtonBorderColorSecondaryBase, lineWidth: 1)
+                    .stroke(isEnabled ? Color.Grove.Button.borderColorSecondaryHover : .Grove.Button.borderColorSecondaryBase, lineWidth: 1)
             )
-            .foregroundColor(isEnabled ? .Grove.Button.ButtonBorderColorSecondaryInvertedBase : .Grove.Button.ButtonTextColorSecondaryDisabled)
-            .background(Color.Grove.Button.ButtonTextColorSecondaryBase)
+            .foregroundColor(isEnabled ? .Grove.Button.borderColorSecondaryInvertedBase : .Grove.Button.textColorSecondaryDisabled)
+            .background(Color.Grove.Button.textColorSecondaryBase)
             .disabled(!isEnabled)
             .clipShape(Capsule())
             .opacity(configuration.isPressed && isEnabled ? 0.8 : 1.0)

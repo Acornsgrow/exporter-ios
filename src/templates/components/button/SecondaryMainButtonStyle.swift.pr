@@ -13,10 +13,10 @@ public struct SecondaryMainButtonStyle: ButtonStyle {
             .frame(height: 44)
             .overlay(
                 RoundedRectangle(cornerRadius: 22)
-                    .stroke(isEnabled ? Color.Grove.Button.ButtonBorderColorSecondaryHover : .Grove.Button.ButtonBorderColorSecondaryBase, lineWidth: 1)
+                    .stroke(isEnabled ? Color.Grove.Button.borderColorSecondaryHover : .Grove.Button.borderColorSecondaryBase, lineWidth: 1)
             )
-            .foregroundColor(isEnabled ? .Grove.Button.ButtonTextColorSecondaryBase : .Grove.Button.ButtonTextColorSecondaryDisabled)
-            .background(Color.Grove.Button.ButtonBorderColorSecondaryInvertedBase)
+            .foregroundColor(isEnabled ? .Grove.Button.textColorSecondaryBase : .Grove.Button.textColorSecondaryDisabled)
+            .background(Color.Grove.Button.borderColorSecondaryInvertedBase)
             .disabled(!isEnabled)
             .clipShape(Capsule())
             .opacity(configuration.isPressed && isEnabled ? 0.8 : 1.0)
