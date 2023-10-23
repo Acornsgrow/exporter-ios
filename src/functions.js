@@ -55,6 +55,11 @@ Pulsar.registerFunction('readableSwiftVariableName', function (token, tokenGroup
     segments.push(tokenGroup.name)
   }
 
+  // If we're dealing with a Component, remove the component name from the variable name
+  if (token.propertyValues.component) {
+    segments.shift()
+  }
+
   segments.push(token.name)
 
   let sentence = segments.join(' ')
@@ -73,7 +78,7 @@ Pulsar.registerFunction('readableSwiftVariableName', function (token, tokenGroup
   }
 
   if (sentence.length > 0) {
-    return sentence[0].toUpperCase() + sentence.slice(1)
+    return sentence
   } else {
     return ""
   }
