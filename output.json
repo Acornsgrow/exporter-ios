@@ -13,8 +13,8 @@
             "write_to": "Components/Button/ButtonTokens.swift"
         },
         {
-            "invoke": "PrimaryMainButtonStyle.swift.pr",
-            "write_to": "Components/Button/PrimaryMainButtonStyle.swift"
+            "invoke": "AcornsPrimaryButtonStyle.swift.pr",
+            "write_to": "Components/Button/AcornsPrimaryButtonStyle.swift"
         },
         {
             "invoke": "SecondaryMainButtonStyle.swift.pr",

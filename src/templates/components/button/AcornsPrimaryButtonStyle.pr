@@ -1,7 +1,7 @@
 {[ inject "auto_generated_comment" context self /]}
 {[ inject "swiftui_import" context self /]}
 
-public struct PrimaryMainButtonStyle: ButtonStyle {
+public struct AcornsPrimaryButtonStyle: ButtonStyle {
 
     @Environment(\.isEnabled) var isEnabled
 
@@ -18,10 +18,10 @@ public struct PrimaryMainButtonStyle: ButtonStyle {
     }
 }
 
-extension ButtonStyle where Self == PrimaryMainButtonStyle {
+extension ButtonStyle where Self == AcornsPrimaryButtonStyle {
 
-    public static var primaryStyle: PrimaryMainButtonStyle {
-        PrimaryMainButtonStyle()
+    public static var acornsPrimaryButtonStyle: AcornsPrimaryButtonStyle {
+        AcornsPrimaryButtonStyle()
     }
 
 }
