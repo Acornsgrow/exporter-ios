@@ -17,12 +17,12 @@
             "write_to": "Components/Button/AcornsPrimaryButtonStyle.swift"
         },
         {
-            "invoke": "SecondaryMainButtonStyle.swift.pr",
-            "write_to": "Components/Button/SecondaryMainButtonStyle.swift"
+            "invoke": "AcornsSecondaryButtonStyle.swift.pr",
+            "write_to": "Components/Button/AcornsSecondaryButtonStyle.swift"
         },
         {
-            "invoke": "InvertedPrimaryButtonStyle.swift.pr",
-            "write_to": "Components/Button/InvertedPrimaryButtonStyle.swift"
+            "invoke": "AcornsPrimaryInvertedButtonStyle.swift.pr",
+            "write_to": "Components/Button/AcornsPrimaryInvertedButtonStyle.swift"
         },
         {
             "invoke": "SecondaryInvertedButtonStyle.swift.pr",
