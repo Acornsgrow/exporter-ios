@@ -1,0 +1,27 @@
+{[ inject "auto_generated_comment" context self /]}
+{[ inject "swiftui_import" context self /]}
+
+public struct AcornsPrimaryInvertedButtonStyle: ButtonStyle {
+
+    @Environment(\.isEnabled) var isEnabled
+
+    public func makeBody(configuration: Self.Configuration) -> some View {
+        configuration.label
+            .font(Font.custom("AvenirNext-DemiBold", size: 14))
+            .frame(maxWidth: .infinity)
+            .frame(height: 44)
+            .foregroundColor(isEnabled ? .Grove.Button.textColorInvertedBase : .Grove.Button.textColorInvertedDisabled)
+            .background(isEnabled ? Color.Grove.Button.backgroundColorInvertedBase : .Grove.Button.backgroundColorInvertedDisabled)
+            .disabled(!isEnabled)
+            .clipShape(Capsule())
+            .opacity(configuration.isPressed && isEnabled ? 0.8 : 1.0)
+    }
+}
+
+extension ButtonStyle where Self == AcornsPrimaryInvertedButtonStyle {
+
+    public static var acornsPrimaryInvertedButtonStyle: AcornsPrimaryInvertedButtonStyle {
+        AcornsPrimaryInvertedButtonStyle()
+    }
+
+}
