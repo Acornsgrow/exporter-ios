@@ -1,0 +1,138 @@
+{[ inject "auto_generated_comment" context self /]}
+{[ inject "swiftui_import" context self /]}
+
+public struct InterstitialButtonStyle: ButtonStyle {
+
+    @Environment(\.isEnabled) var isEnabled
+
+    private let foregroundColor: Color
+    private let backgroundColor: Color
+    private let interstitialShape: InterstitialPillShape
+
+    internal init(
+        foregroundColor: Color,
+        backgroundColor: Color,
+        interstitialShape: InterstitialPillShape
+    ) {
+        self.foregroundColor = foregroundColor
+        self.backgroundColor = backgroundColor
+        self.interstitialShape = interstitialShape
+    }
+
+    public func makeBody(configuration: Self.Configuration) -> some View {
+        configuration.label
+            .font(Font.custom("AvenirNext-DemiBold", size: 14))
+            .padding([.leading], interstitialShape.paddingLeft)
+            .padding([.trailing], interstitialShape.paddingRight)
+            .frame(
+                width: self.interstitialShape.width,
+                height: self.interstitialShape.height
+            )
+            .foregroundColor(isEnabled ? foregroundColor : .Grove.Button.textColorInvertedDisabled)
+            .background(isEnabled ? backgroundColor : Color.Grove.Button.backgroundColorDisabled)
+            .disabled(!isEnabled)
+            .clipShape(Capsule())
+            .opacity(configuration.isPressed && isEnabled ? 0.7 : 1.0)
+    }
+}
+
+extension ButtonStyle where Self == InterstitialButtonStyle {
+
+    public static func primaryInterstitialPill(
+        interstitialShape: InterstitialPillShape = .pill()
+    ) -> InterstitialButtonStyle {
+        InterstitialButtonStyle(
+            foregroundColor: .Grove.Button.textColorBase,
+            backgroundColor: .Grove.Button.textColorInvertedBase,
+            interstitialShape: interstitialShape
+        )
+    }
+
+    public static var primaryInterstitialCategoryPill: InterstitialButtonStyle {
+        InterstitialButtonStyle(
+            foregroundColor: .Grove.Button.textColorBase,
+            backgroundColor: .Grove.Button.textColorInvertedBase,
+            interstitialShape: .categoryPill()
+        )
+    }
+
+    public static var secondaryInterstitialPill: InterstitialButtonStyle {
+        InterstitialButtonStyle(
+            foregroundColor: .Grove.Button.textColorSecondaryBase,
+            backgroundColor: .Grove.Button.backgroundColorInvertedHover,
+            interstitialShape: .pill()
+        )
+    }
+
+    public static var secondaryInterstitialCategoryPill: InterstitialButtonStyle {
+        InterstitialButtonStyle(
+            foregroundColor: .Grove.Button.textColorSecondaryBase,
+            backgroundColor: .Grove.Button.backgroundColorInvertedHover,
+            interstitialShape: .categoryPill()
+        )
+    }
+
+}
+
+public enum InterstitialPillShape {
+    case circle(size: CGFloat = 44)
+    case pill(iconPosition: IconPosition? = nil)
+    case categoryPill(iconPosition: IconPosition? = nil)
+
+    var height: CGFloat {
+        switch self {
+        case .circle(let size):
+            return size
+        case .pill(_):
+            return 44
+        case .categoryPill(_):
+            return 34
+        }
+    }
+
+    var width: CGFloat? {
+        switch self {
+        case .circle(let size):
+            return size
+        case .pill(_), .categoryPill(_):
+            return nil
+        }
+    }
+
+    var paddingLeft: CGFloat? {
+        switch self {
+        case .circle(_):
+            return nil
+        case .pill(let iconPosition), .categoryPill(let iconPosition):
+            switch iconPosition {
+            case .left:
+                return 21
+            case .right:
+                return 24
+            default:
+                return 24
+            }
+        }
+    }
+
+    var paddingRight: CGFloat? {
+        switch self {
+        case .circle(_):
+            return nil
+        case .pill(let iconPosition), .categoryPill(let iconPosition):
+            switch iconPosition {
+            case .left:
+                return 24
+            case .right:
+                return 21
+            default:
+                return 24
+            }
+        }
+    }
+}
+
+public enum IconPosition {
+    case left
+    case right
+}
