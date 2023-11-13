@@ -31,6 +31,10 @@
         {
             "invoke": "InterstitialButtonStyle.swift.pr",
             "write_to": "Components/InterstitialButton/InterstitialButtonStyle.swift"
+        },
+        {
+            "invoke": "MiniButtonStyle.swift.pr",
+            "write_to": "Components/MiniButton/MiniButtonStyle.swift"
         }
     ]
 }
