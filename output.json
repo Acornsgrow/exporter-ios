@@ -27,6 +27,10 @@
         {
             "invoke": "AcornsSecondaryInvertedButtonStyle.swift.pr",
             "write_to": "Components/Button/AcornsSecondaryInvertedButtonStyle.swift"
+        },
+        {
+            "invoke": "AcornsMainButtonStyle.swift.pr",
+            "write_to": "Components/Button/AcornsMainButtonStyle.swift"
         }
     ]
 }
