@@ -33,8 +33,8 @@
             "write_to": "Components/InterstitialButton/InterstitialButtonStyle.swift"
         },
         {
-            "invoke": "MiniButtonStyle.swift.pr",
-            "write_to": "Components/MiniButton/MiniButtonStyle.swift"
+            "invoke": "AcornsMiniButtonStyle.swift.pr",
+            "write_to": "Components/MiniButton/AcornsMiniButtonStyle.swift"
         }
     ]
 }

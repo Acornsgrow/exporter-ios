@@ -1,0 +1,47 @@
+{[ inject "auto_generated_comment" context comment /]}
+{[ inject "swiftui_import" context self /]}
+
+public struct AcornsMiniButtonStyle: ButtonStyle {
+
+    private let foregroundColor: Color
+    private let backgroundColor: Color
+
+    internal init(
+        foregroundColor: Color,
+        backgroundColor: Color
+    ) {
+        self.foregroundColor = foregroundColor
+        self.backgroundColor = backgroundColor
+    }
+
+    public func makeBody(configuration: Self.Configuration) -> some View {
+        configuration.label
+            .font(Font.custom("AvenirNext-DemiBold", size: 14))
+            .padding(.horizontal, 20)
+            .frame(height: 44)
+            .frame(width: nil)
+            .foregroundColor(self.foregroundColor)
+            .background(self.backgroundColor)
+            .clipShape(Capsule())
+            .opacity(configuration.isPressed ? 0.8 : 1.0)
+    }
+
+}
+
+extension ButtonStyle where Self == AcornsMiniButtonStyle {
+
+    public static var acornsLightMiniButtonStyle: AcornsMiniButtonStyle {
+        AcornsMiniButtonStyle(
+            foregroundColor: .Grove.Button.textColorBase,
+            backgroundColor: .Grove.Button.textColorInvertedBase
+        )
+    }
+
+    public static var acornsDarkMiniButtonStyle: AcornsMiniButtonStyle {
+        AcornsMiniButtonStyle(
+            foregroundColor: .Grove.Button.textColorSecondaryBase,
+            backgroundColor: .Grove.Button.backgroundColorInvertedHover
+        )
+    }
+
+}
