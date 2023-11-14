@@ -1,0 +1,91 @@
+{[ inject "auto_generated_comment" context self /]}
+{[ inject "swiftui_import" context self /]}
+
+public struct AcornsMainButtonStyle: ButtonStyle {
+
+    @Environment(\.isEnabled) var isEnabled
+
+    private let foregroundColor: Color
+    private let backgroundColor: Color
+    private let foregroundColorDisabled: Color
+    private let backgroundColorDisabled: Color
+    private let strokeColor: Color
+    private let strokeColorDisabled: Color
+
+    internal init(
+        foregroundColor: Color,
+        backgroundColor: Color,
+        foregroundColorDisabled: Color,
+        backgroundColorDisabled: Color,
+        strokeColor: Color = .clear,
+        strokeColorDisabled: Color = .clear
+    ) {
+        self.foregroundColor = foregroundColor
+        self.backgroundColor = backgroundColor
+        self.foregroundColorDisabled = foregroundColor
+        self.backgroundColorDisabled = backgroundColorDisabled
+        self.strokeColor = strokeColor
+        self.strokeColorDisabled = strokeColorDisabled
+    }
+
+    public func makeBody(configuration: Self.Configuration) -> some View {
+        configuration.label
+            .font(Font.custom("AvenirNext-DemiBold", size: 14))
+            .frame(maxWidth: .infinity)
+            .frame(height: 44)
+            .overlay(
+                RoundedRectangle(cornerRadius: 22)
+                    .stroke(isEnabled ? strokeColor : strokeColorDisabled, lineWidth: 1)
+            )
+            .foregroundColor(self.foregroundColor)
+            .background(isEnabled ? self.backgroundColor : self.backgroundColorDisabled)
+            .disabled(!isEnabled)
+            .clipShape(Capsule())
+            .opacity(configuration.isPressed && isEnabled ? 0.8 : 1.0)
+    }
+
+}
+
+extension ButtonStyle where Self == AcornsMainButtonStyle {
+
+    public static var acornsPrimaryButtonStyle: AcornsMainButtonStyle {
+        AcornsMainButtonStyle(
+            foregroundColor: .Grove.Button.textColorBase,
+            backgroundColor: .Grove.Button.backgroundColorBase,
+            foregroundColorDisabled: .Grove.Button.textColorBase,
+            backgroundColorDisabled: .Grove.Button.backgroundColorDisabled
+        )
+    }
+
+    public static var acornsSecondaryButtonStyle: AcornsMainButtonStyle {
+        AcornsMainButtonStyle(
+            foregroundColor: .Grove.Button.textColorSecondaryBase,
+            backgroundColor: .Grove.Button.borderColorSecondaryInvertedBase,
+            foregroundColorDisabled: .Grove.Button.textColorSecondaryDisabled,
+            backgroundColorDisabled: .Grove.Button.borderColorSecondaryInvertedBase,
+            strokeColor: .Grove.Button.borderColorSecondaryHover,
+            strokeColorDisabled: .Grove.Button.borderColorSecondaryDisabled
+        )
+    }
+
+    public static var acornsPrimaryInvertedButtonStyle: AcornsMainButtonStyle {
+        AcornsMainButtonStyle(
+            foregroundColor: .Grove.Button.textColorInvertedBase,
+            backgroundColor: .Grove.Button.backgroundColorInvertedBase,
+            foregroundColorDisabled: .Grove.Button.textColorInvertedDisabled,
+            backgroundColorDisabled: .Grove.Button.backgroundColorInvertedDisabled
+        )
+    }
+
+    public static var acornsSecondaryInvertedButtonStyle: AcornsMainButtonStyle {
+        AcornsMainButtonStyle(
+            foregroundColor: .Grove.Button.borderColorSecondaryInvertedBase,
+            backgroundColor: .Grove.Button.textColorSecondaryBase,
+            foregroundColorDisabled: .Grove.Button.textColorSecondaryDisabled,
+            backgroundColorDisabled: .Grove.Button.textColorSecondaryBase,
+            strokeColor: .Grove.Button.borderColorSecondaryInvertedBase,
+            strokeColorDisabled: .Grove.Button.borderColorSecondaryDisabled
+        )
+    }
+
+}
